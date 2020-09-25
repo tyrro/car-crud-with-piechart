@@ -2,13 +2,39 @@
   "name": "car_crud_with_piechart",
   "private": true,
   "dependencies": {
+    "@babel/preset-react": "^7.10.4",
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
-    "turbolinks": "^5.2.0"
+    "@rails/webpacker": "4.3.0",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "eslint-config-prettier": "^6.11.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "turbolinks": "^5.2.0",
+    "webpacker-react": "^0.3.2"
   },
   "version": "0.1.0",
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.9.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.21.2",
+    "prettier": "^2.1.2",
     "webpack-dev-server": "^3.11.0"
+  },
+  "scripts": {
+    "test": "TZ=UTC jest",
+    "test:watch": "TZ=UTC jest --watch",
+    "test:ci": "yarn test --ci --testResultsProcessor jest-junit --runInBand",
+    "lint": "eslint --ext .js,.jsx app",
+    "fix:lint": "eslint --ext .js,.jsx app --fix",
+    "fix:prettier": "prettier --write \"app/javascript/components/**/*.*\""
+  },
+  "engines": {
+    "node": ">=10 <=12.14.0"
   }
 }
