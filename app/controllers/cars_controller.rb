@@ -4,8 +4,9 @@ class CarsController < ApplicationController
 
   def index
     @cars = Car.all
-    @cars = Queries::Search.call(params, @cars)
+    @cars = Queries::Search.call(params, @cars).order(:manufacturer)
     @cars = Queries::Paginate.call(params, @cars)
+    @car_search_suggestions = @cars.map(&:manufacturer).uniq
   end
 
   def create
