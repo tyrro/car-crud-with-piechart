@@ -6,6 +6,7 @@ json.cars @cars do |car|
   json.producing_country car.producing_country
 end
 json.car_suggestions @car_search_suggestions
+json.car_graphic_params @car_graphic_params
 json.pagination do
   json.total_pages @cars.total_pages
   json.total_count @cars.total_count

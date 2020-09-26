@@ -7,6 +7,7 @@ class CarsController < ApplicationController
     @cars = Queries::Search.call(params, @cars).order(:manufacturer)
     @cars = Queries::Paginate.call(params, @cars)
     @car_search_suggestions = @cars.map(&:manufacturer).uniq
+    @car_graphic_params = ::PrepareParamsForCarGraphic.call(@cars)
   end
 
   def create

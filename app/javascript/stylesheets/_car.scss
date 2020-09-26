@@ -1,9 +1,16 @@
 .car {
   display: flex;
-  flex-direction: column;
   padding: 10px;
   margin: 10px;
   text-align: left;
+
+  &-details {
+    width: 60%;
+  }
+
+  &-graphic {
+    width: 40%;
+  }
 
   .search-box {
     input {
