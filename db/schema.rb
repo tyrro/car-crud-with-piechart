@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2020_09_24_181529) do
     t.string "model", null: false
     t.integer "year"
     t.string "producing_country"
+    t.index ["manufacturer"], name: "index_cars_on_manufacturer"
   end
 
 end
