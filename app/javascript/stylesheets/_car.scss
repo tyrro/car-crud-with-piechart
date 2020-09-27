@@ -1,25 +1,43 @@
 .car {
   display: flex;
-  padding: 10px;
   margin: 10px;
-  text-align: left;
+  padding: 10px;
 
   &-details {
     width: 60%;
+
+    &-header {
+      display: flex;
+      justify-content: space-between;
+
+      &__search-box {
+        input {
+          width: 120%;
+        }
+        li {
+          cursor: pointer;
+          list-style-type: none;
+        }
+      }
+
+      &__csv-upload {
+        .csv-upload-form {
+          &__successful {
+            color: blue;
+            font-size: 15px;
+          }
+
+          &__unsuccessful {
+            color: red;
+            font-size: 15px;
+          }
+        }
+      }
+    }
   }
 
   &-graphic {
     width: 40%;
-  }
-
-  .search-box {
-    input {
-      width: 20%;
-    }
-    li {
-      list-style-type: none;
-      cursor: pointer;
-    }
   }
 
   &__pagination {
@@ -61,13 +79,13 @@
     display: flex;
     justify-content: flex-start;
     max-height: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
     width: 300px;
     white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
 
     &--actions {
-      justify-content: center;
+      justify-content: space-evenly;
     }
   }
 
@@ -76,13 +94,22 @@
     border-top: none;
   }
 
-  &__edit {
+  &-edit {
     display: flex;
     flex-direction: column;
+    margin: auto;
 
     > label {
       margin: 10px 0;
       width: 100%;
+    }
+
+    &__title {
+      padding-right: 10px;
+    }
+
+    &__error {
+      color: red;
     }
   }
 }

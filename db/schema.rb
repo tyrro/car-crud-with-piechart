@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 2020_09_24_181529) do
   create_table "cars", force: :cascade do |t|
     t.string "manufacturer", null: false
     t.string "model", null: false
-    t.integer "year"
-    t.string "producing_country"
+    t.integer "year", null: false
+    t.string "producing_country", null: false
     t.index ["manufacturer"], name: "index_cars_on_manufacturer"
   end
 

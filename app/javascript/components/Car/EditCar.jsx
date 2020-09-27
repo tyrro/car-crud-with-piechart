@@ -37,9 +37,9 @@ const EditCar = ({ car, fetchCars }) => {
 
   return (
     <Modal linkText="Edit" header="Edit Car">
-      <form className="car__edit" onSubmit={event => handleSubmitForm(event)}>
+      <form className="car-edit" onSubmit={event => handleSubmitForm(event)}>
         <label htmlFor="manufacturer">
-          Name:
+          <span className="car-edit__title">{I18n.t('attributes.manufacturer')}</span>
           <input
             type="text"
             value={manufacturer}
@@ -47,28 +47,32 @@ const EditCar = ({ car, fetchCars }) => {
           />
           {errors.manufacturer && <div className="car__edit-error">{errors.manufacturer}</div>}
         </label>
+
         <label htmlFor="model">
-          model:
+          <span className="car-edit__title">{I18n.t('attributes.model')}</span>
           <input type="text" value={model} onChange={event => setModal(event.target.value)} />
           {errors.model && <div className="car__edit-error">{errors.model}</div>}
         </label>
+
         <label htmlFor="year">
-          year:
+          <span className="car-edit__title">{I18n.t('attributes.year')}</span>
           <input type="text" value={year} onChange={event => setYear(event.target.value)} />
           {errors.year && <div className="car__edit-error">{errors.year}</div>}
         </label>
+
         <label htmlFor="producingCountry">
-          producingCountry:
+          <span className="car-edit__title">{I18n.t('attributes.producingCountry')}</span>
           <input
             type="text"
             value={producingCountry}
             onChange={event => setProducingCountry(event.target.value)}
           />
           {errors.producingCountry && (
-            <div className="car__edit-error">{errors.producingCountry}</div>
+            <div className="car-edit__error">{errors.producingCountry}</div>
           )}
         </label>
-        <div className="car__edit-submit-bottom">
+
+        <div className="car-edit__submit-bottom">
           <input type="submit" value="Submit" />
         </div>
       </form>
