@@ -14,7 +14,7 @@ const Modal = ({ linkText, header, children }) => {
         {linkText}
       </button>
       <ReactModal ariaHideApp={false} isOpen={isOpen} onRequestClose={handleCloseModal}>
-        {header}
+        <div className="modal__header">{header}</div>
         {children}
       </ReactModal>
     </>

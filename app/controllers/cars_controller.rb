@@ -34,6 +34,16 @@ class CarsController < ApplicationController
     render json: { message: t('destroyed', resource: @car.model_name.human) }
   end
 
+  def import
+    result = CarImport.call(params[:file])
+
+    if result[:success]
+      render json: { error: nil }
+    else
+      render json: { error: result[:errors] }, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def set_car

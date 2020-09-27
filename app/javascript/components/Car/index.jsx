@@ -4,8 +4,10 @@ import { debounce } from 'throttle-debounce';
 import httpClient from '../../libraries/httpClient';
 import routes from '../../routes';
 
-import Pagination from '../Pagination';
 import EditCar from './EditCar';
+import UploadCSV from './UploadCSV';
+
+import Pagination from '../Pagination';
 import PieGraphic from '../PieGraphic';
 
 const Car = () => {
@@ -45,6 +47,7 @@ const Car = () => {
   };
 
   const onCarDelete = async carId => {
+    // eslint-disable-next-line no-alert
     if (window.confirm('Are you sure to delete this car')) {
       await httpClient.delete(routes.cars.destroy({ carId }));
       fetchCars(searchParam, currentPage);
@@ -70,20 +73,25 @@ const Car = () => {
   return (
     <div className="car">
       <div className="car-details">
-        <div className="search-box">
-          <input
-            type="text"
-            placeholder="Search with Manufacturer"
-            value={searchParam}
-            onChange={event => {
-              setSearchParam(event.target.value);
-            }}
-          />
-          {preparedCarSuggestions().map(suggestion => (
-            <div className="search-box__suggestions" key={suggestion}>
-              <li onClick={() => setSearchParam(suggestion)}>{suggestion}</li>
-            </div>
-          ))}
+        <div className="car-details-header">
+          <div className="car-details-header__search-box">
+            <input
+              type="text"
+              placeholder="Search with Manufacturer"
+              value={searchParam}
+              onChange={event => {
+                setSearchParam(event.target.value);
+              }}
+            />
+            {preparedCarSuggestions().map(suggestion => (
+              <div className="search-box__suggestions" key={suggestion}>
+                <li onClick={() => setSearchParam(suggestion)}>{suggestion}</li>
+              </div>
+            ))}
+          </div>
+          <div className="car-details-header__csv-upload">
+            <UploadCSV fetchCars={fetchCars} />
+          </div>
         </div>
         <div className="car__pagination">
           <Pagination
@@ -95,7 +103,7 @@ const Car = () => {
         <div className="car__header">
           {CARATTRIBUTES.map(attribute => (
             <div className="car__value" key={attribute}>
-              {attribute}
+              {I18n.t(`attributes.${attribute}`)}
             </div>
           ))}
           <div className="car__value car__value--actions">Actions</div>

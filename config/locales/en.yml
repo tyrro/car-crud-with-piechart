@@ -3,5 +3,10 @@
 # than English, add the necessary files in this directory.
 
 en:
-  destroyed: "%{resource} has been removed"
-  page_title: Cars With PieChart
+  destroyed: '%{resource} has been removed'
+  page_title: Cars
+  attributes:
+    manufacturer: Manufacturer
+    model: Model
+    year: Year
+    producingCountry: Producing Country

@@ -1,4 +1,12 @@
 .ReactModal__Content {
+  display: flex;
+  flex-direction: column;
+  height: 35%;
   margin: auto;
-  width: 50%;
+  text-align: right;
+  width: 30%;
+
+  .modal__header {
+    text-align: center;
+  }
 }
