@@ -3,7 +3,7 @@
   margin: 10px;
   padding: 10px;
 
-  &-details {
+  &__details {
     width: 60%;
 
     &-header {
@@ -11,12 +11,20 @@
       justify-content: space-between;
 
       &__search-box {
+        width: 60%;
+
         input {
-          width: 120%;
+          width: 50%;
         }
         li {
+          background: $astronomical-silver;
           cursor: pointer;
           list-style-type: none;
+          width: 51%;
+
+          &:hover {
+            background: $cool-gray-96;
+          }
         }
       }
 
@@ -36,7 +44,7 @@
     }
   }
 
-  &-graphic {
+  &__graphic {
     width: 40%;
   }
 

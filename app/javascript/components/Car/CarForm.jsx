@@ -6,7 +6,7 @@ import routes from '../../routes';
 
 import Modal from '../Modal';
 
-const EditCar = ({ car, fetchCars }) => {
+const CarForm = ({ car, fetchCars }) => {
   const [manufacturer, setManufacturer] = useState(car.manufacturer);
   const [model, setModal] = useState(car.model);
   const [year, setYear] = useState(car.year);
@@ -45,19 +45,19 @@ const EditCar = ({ car, fetchCars }) => {
             value={manufacturer}
             onChange={event => setManufacturer(event.target.value)}
           />
-          {errors.manufacturer && <div className="car__edit-error">{errors.manufacturer}</div>}
+          {errors.manufacturer && <div className="car-edit__error">{errors.manufacturer}</div>}
         </label>
 
         <label htmlFor="model">
           <span className="car-edit__title">{I18n.t('attributes.model')}</span>
           <input type="text" value={model} onChange={event => setModal(event.target.value)} />
-          {errors.model && <div className="car__edit-error">{errors.model}</div>}
+          {errors.model && <div className="car-edit__error">{errors.model}</div>}
         </label>
 
         <label htmlFor="year">
           <span className="car-edit__title">{I18n.t('attributes.year')}</span>
           <input type="text" value={year} onChange={event => setYear(event.target.value)} />
-          {errors.year && <div className="car__edit-error">{errors.year}</div>}
+          {errors.year && <div className="car-edit__error">{errors.year}</div>}
         </label>
 
         <label htmlFor="producingCountry">
@@ -80,7 +80,7 @@ const EditCar = ({ car, fetchCars }) => {
   );
 };
 
-EditCar.propTypes = {
+CarForm.propTypes = {
   car: PropTypes.shape({
     id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     manufacturer: PropTypes.string,
@@ -91,4 +91,4 @@ EditCar.propTypes = {
   fetchCars: PropTypes.func.isRequired,
 };
 
-export default EditCar;
+export default CarForm;
