@@ -13,10 +13,12 @@ const Modal = ({ linkText, header, children }) => {
       <button type="button" onClick={handleOpenModal}>
         {linkText}
       </button>
-      <ReactModal ariaHideApp={false} isOpen={isOpen} onRequestClose={handleCloseModal}>
-        <div className="modal__header">{header}</div>
-        {children}
-      </ReactModal>
+      {isOpen && (
+        <ReactModal ariaHideApp={false} isOpen={isOpen} onRequestClose={handleCloseModal}>
+          <div className="modal__header">{header}</div>
+          {children}
+        </ReactModal>
+      )}
     </>
   );
 };

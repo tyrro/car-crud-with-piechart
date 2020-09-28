@@ -19,7 +19,7 @@ const PieGraphic = props => {
   return (
     <PieChart
       data={data}
-      animate
+      animate={true}
       center={[100, 100]}
       label={data => data.dataEntry.title}
       labelPosition={112}

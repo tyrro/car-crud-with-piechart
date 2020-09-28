@@ -1,11 +1,13 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+
 import React, { useEffect, useState, useRef } from 'react';
 import { debounce } from 'throttle-debounce';
 
 import httpClient from '../../libraries/httpClient';
 import routes from '../../routes';
 
-import EditCar from './EditCar';
-import UploadCSV from './UploadCSV';
+import CarForm from './CarForm';
+import CSVUpload from './CSVUpload';
 
 import Pagination from '../Pagination';
 import PieGraphic from '../PieGraphic';
@@ -67,14 +69,15 @@ const Car = () => {
   };
 
   useEffect(() => {
+    console.log('here');
     fetchCarsWithDebounce(searchParam);
   }, [searchParam]);
 
   return (
     <div className="car">
-      <div className="car-details">
-        <div className="car-details-header">
-          <div className="car-details-header__search-box">
+      <div className="car__details">
+        <div className="car__details-header">
+          <div className="car__details-header__search-box">
             <input
               type="text"
               placeholder="Search with Manufacturer"
@@ -89,8 +92,8 @@ const Car = () => {
               </div>
             ))}
           </div>
-          <div className="car-details-header__csv-upload">
-            <UploadCSV fetchCars={fetchCars} />
+          <div className="car__details-header__csv-upload">
+            <CSVUpload fetchCars={fetchCars} />
           </div>
         </div>
         <div className="car__pagination">
@@ -117,7 +120,8 @@ const Car = () => {
                 </div>
               ))}
               <div className="car__value car__value--actions">
-                <EditCar car={car} fetchCars={fetchCars} />
+                <CarForm car={car} fetchCars={fetchCars} />
+
                 <button type="button" onClick={() => onCarDelete(car.id)}>
                   Delete
                 </button>
@@ -133,7 +137,7 @@ const Car = () => {
           />
         </div>
       </div>
-      <div className="car-graphic">
+      <div className="car__graphic">
         <PieGraphic data={carGraphicParams} />
       </div>
     </div>
