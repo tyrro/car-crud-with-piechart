@@ -1,24 +1,79 @@
-# README
+# Car CRUD with Pie Chart
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+An application where user can add car data through a CSV, update data end delete data.
+A piechart is also shown to reflect on the current data on a page.
 
-Things you may want to cover:
+The backend of this project is developed in Rails and the Frontend part in react. To run this project in
+the local machine, we have to install both `Rails` and `Node`.
 
-* Ruby version
+**Setup**
 
-* System dependencies
+- Clone the repository
+  ```bash
+  git@github.com:rajibds/car-crud-with-piechart.git
+  ```
+- Homebrew:
+  ```bash
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  ```
+- rbenv:
 
-* Configuration
+  ```bash
+  brew install rbenv ruby-build
 
-* Database creation
+  # Add rbenv to bash so that it loads every time you open a terminal
+  echo 'if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi' >> ~/.bash_profile
+  source ~/.bash_profile
 
-* Database initialization
+  # Install Ruby
+  rbenv install 2.6.5
+  rbenv global 2.6.5
 
-* How to run the test suite
+  # Check if 2.6.5 is installed
+  ruby -v
+  ```
 
-* Services (job queues, cache servers, search engines, etc.)
+- PostgreSQL
 
-* Deployment instructions
+  ```bash
+  brew install postgresql
 
-* ...
+  # To have launchd start postgresql at login:
+  brew services start postgresql
+  ```
+
+- nvm
+
+  ```bash
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash
+
+  # install node(>10.13.0)
+  nvm install 12
+  nvm use 12
+  ```
+
+- Dependency installation
+
+  ```bash
+  bundle install
+  yarn install
+  ```
+
+- Database initialization
+
+  ```bash
+  rails db:create
+  rails db:schema:load
+  rails db:seed
+  ```
+
+- Foreman installation
+
+  ```bash
+  gem install foreman
+  ```
+
+- Server Start
+  ```bash
+  foreman s
+  ```
