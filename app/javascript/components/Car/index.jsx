@@ -69,7 +69,6 @@ const Car = () => {
   };
 
   useEffect(() => {
-    console.log('here');
     fetchCarsWithDebounce(searchParam);
   }, [searchParam]);
 
