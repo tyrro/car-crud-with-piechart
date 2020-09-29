@@ -3,6 +3,7 @@ import axios from 'axios';
 import { shallow } from 'enzyme';
 
 import CSVUpload from './CSVUpload';
+import wait from '../../libraries/wait';
 
 const props = { fetchCars: jest.fn() };
 const file = new Blob(['file contents'], { type: 'csv' });
@@ -11,8 +12,6 @@ const uploadCSV = wrapper =>
   wrapper.find('input[type="file"]').simulate('change', {
     target: { files: [file] },
   });
-
-const flushPromises = () => new Promise(setImmediate);
 
 describe(CSVUpload, () => {
   const wrapper = shallow(<CSVUpload {...props} />);
@@ -34,7 +33,7 @@ describe(CSVUpload, () => {
     uploadCSV(wrapper);
     wrapper.find('form').simulate('submit', { preventDefault() {} });
 
-    await flushPromises();
+    await wait();
 
     expect(wrapper.find('div.csv-upload-form__successful').text()).toEqual('CSV Upload Successful');
   });
@@ -47,7 +46,7 @@ describe(CSVUpload, () => {
     uploadCSV(wrapper);
     wrapper.find('form').simulate('submit', { preventDefault() {} });
 
-    await flushPromises();
+    await wait();
 
     expect(wrapper.find('div.csv-upload-form__unsuccessful').text()).toEqual(
       'CSV Upload Unsuccessful',

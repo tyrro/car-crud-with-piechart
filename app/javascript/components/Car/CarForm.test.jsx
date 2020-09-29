@@ -4,6 +4,7 @@ import axios from 'axios';
 import { shallow } from 'enzyme';
 
 import CarForm from './CarForm';
+import wait from '../../libraries/wait';
 
 const props = {
   car: {
@@ -15,8 +16,6 @@ const props = {
   },
   fetchCars: jest.fn(),
 };
-
-const flushPromises = () => new Promise(setImmediate);
 
 describe(CarForm, () => {
   const wrapper = shallow(<CarForm {...props} />);
@@ -34,13 +33,14 @@ describe(CarForm, () => {
     expect(wrapper.find('input[type="text"]').first().prop('value')).toEqual('Toyota');
   });
 
-  test('shows erroneous fields when submitted', async () => {
+  test('shows erroneous fields if response has error after form submission', async () => {
     axios.onPut(/cars/).reply(422, {
       error: { manufacturer: 'can not be blank' },
     });
 
     wrapper.find('form').simulate('submit', { preventDefault() {} });
-    await flushPromises();
+    await wait();
+    expect(props.fetchCars).not.toHaveBeenCalled();
 
     expect(wrapper.find('div.car-edit__error').text()).toEqual('can not be blank');
   });

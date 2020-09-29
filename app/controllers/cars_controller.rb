@@ -12,7 +12,7 @@ class CarsController < ApplicationController
 
   def create
     @car = Car.new(car_params)
-    if @car.save!
+    if @car.save
       render json: { error: nil }
     else
       render json: { error: validation_messages(@car.errors.messages) },

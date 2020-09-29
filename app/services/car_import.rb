@@ -40,12 +40,12 @@ class CarImport
     { success: success, errors: errors }
   end
 
-  def create_instance(param)
-    Car.new(car_attributes(param))
+  def create_instance(params)
+    Car.new(car_attributes(params))
   end
 
-  def car_attributes(param)
-    manufacturer, model, year, producing_country = param
+  def car_attributes(params)
+    manufacturer, model, year, producing_country = params
     {
       manufacturer: manufacturer[1],
       model: model[1],
