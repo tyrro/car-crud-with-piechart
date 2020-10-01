@@ -55,6 +55,8 @@ the local machine, we have to install both `Rails` and `Node`.
 - Dependency installation
 
   ```bash
+  gem install bundler
+  brew install yarn
   bundle install
   yarn install
   ```
