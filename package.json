@@ -47,6 +47,6 @@
     "fix:prettier": "prettier --write \"app/javascript/components/**/*.*\""
   },
   "engines": {
-    "node": ">=10 <=12.14.0"
+    "node": ">=10"
   }
 }
