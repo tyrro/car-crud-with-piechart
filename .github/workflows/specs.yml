@@ -16,13 +16,12 @@ jobs:
       - uses: actions/checkout@v2
       - name: Setup Ruby
         uses: eregon/use-ruby-action@master # this will use by default the .ruby-version file in your repository
-      - name: Install PostgreSQL 11 client
+      - name: Install PostgreSQL 11.5 client
         run: |
           sudo apt-get -yqq install libpq-dev
       - name: Build and run tests
         env:
           DATABASE_URL: postgres://postgres:@localhost:5432/car_crud_with_piechart_test
-          POSTGRES_PASSWORD: postgres
           RAILS_ENV: test
         run: |
           gem install bundler
