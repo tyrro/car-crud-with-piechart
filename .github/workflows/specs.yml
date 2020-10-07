@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     services:
       db:
-        image: postgres:11
+        image: postgres:11.5
         ports: ['5432:5432']
         options: >-
           --health-cmd pg_isready
@@ -21,7 +21,7 @@ jobs:
           sudo apt-get -yqq install libpq-dev
       - name: Build and run tests
         env:
-          DATABASE_URL: postgres://postgres:@localhost:5432/test
+          DATABASE_URL: postgres://postgres:@localhost:5432/car_crud_with_piechart_test
           POSTGRES_PASSWORD: postgres
           RAILS_ENV: test
         run: |
