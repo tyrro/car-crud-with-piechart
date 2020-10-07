@@ -23,9 +23,10 @@ jobs:
           sudo apt-get -yqq install libpq-dev
       - name: Build and run tests
         env:
+          DATABASE_URL: postgres://postgres:@localhost:5432/car_crud_with_piechart_test
           RAILS_ENV: test
         run: |
           gem install bundler
           bundle install --jobs 4 --retry 3
-          bundle exec rails db:prepare
+          bundle exec rails db:test:prepare
           bundle exec rspec
