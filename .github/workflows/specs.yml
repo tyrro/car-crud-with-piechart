@@ -23,7 +23,6 @@ jobs:
           sudo apt-get -yqq install libpq-dev
       - name: Build and run tests
         env:
-          DATABASE_URL: postgres://postgres:@localhost:5432
           RAILS_ENV: test
         run: |
           gem install bundler
