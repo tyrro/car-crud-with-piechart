@@ -40,8 +40,7 @@ class CarsController < ApplicationController
     if result[:success]
       render json: { error: nil }
     else
-      render json: { error: result[:errors] }, 
-      status: :unprocessable_entity
+      render json: { error: result[:errors] }, status: :unprocessable_entity
     end
   end
 
