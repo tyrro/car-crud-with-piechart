@@ -9,6 +9,6 @@ jobs:
       - name: Setup Ruby
         uses: eregon/use-ruby-action@master #this will use by default the .ruby-version file in the repository
       - name: Setup pronto
-        run: gem install pronto pronto-rubocop pronto-flay pronto-brakeman pronto-rails_best_practices pronto-rails_schema pronto-reek pronto-scss
+        run: gem install pronto pronto-rubocop
       - name: Run Pronto
-        run: PRONTO_PULL_REQUEST_ID="$(jq --raw-output .number "$GITHUB_EVENT_PATH")" pronto run -f github_status github_pr -c origin/${{ github.base_ref }}
+        run: PRONTO_PULL_REQUEST_ID="$(jq --raw-output .number "$GITHUB_EVENT_PATH")" PRONTO_GITHUB_ACCESS_TOKEN="${{ github.token }}" bundle exec pronto run -f github_status github_pr -c origin/${{ github.base_ref }}
