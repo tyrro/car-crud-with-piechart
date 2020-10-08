@@ -10,10 +10,5 @@ import Car from '../components/Car';
 
 import '../stylesheets/index.scss';
 
-require('@rails/ujs').start();
-require('turbolinks').start();
-require('@rails/activestorage').start();
-require('channels');
-
 WebpackerReact.setup({ Car });
 global.I18n = I18n;
