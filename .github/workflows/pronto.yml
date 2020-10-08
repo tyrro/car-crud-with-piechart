@@ -6,10 +6,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
         uses: actions/checkout@v2
-      - run: |
-          git fetch --no-tags --prune --depth=10 origin +refs/heads/*:refs/remotes/origin/*
       - name: Setup Ruby
         uses: eregon/use-ruby-action@master #this will use by default the .ruby-version file in the repository
       - name: Setup pronto
