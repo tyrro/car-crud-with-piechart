@@ -3,7 +3,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { debounce } from 'throttle-debounce';
 
-import httpClient from '../../libraries/httpClient';
+import httpClient from '../../shared/httpClient';
 import routes from '../../routes';
 
 import CarForm from './CarForm';

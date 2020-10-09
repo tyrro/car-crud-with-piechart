@@ -3,7 +3,7 @@ import axios from 'axios';
 import { shallow } from 'enzyme';
 
 import CSVUpload from './CSVUpload';
-import wait from '../../libraries/wait';
+import wait from '../../shared/wait';
 
 const props = { fetchCars: jest.fn() };
 const file = new Blob(['file contents'], { type: 'csv' });

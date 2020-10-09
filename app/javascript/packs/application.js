@@ -4,11 +4,10 @@
 // that code so it'll be compiled.
 
 import WebpackerReact from 'webpacker-react';
-import I18n from 'i18n-js';
+import '../shared/i18n-js';
 
 import Car from '../components/Car';
 
 import '../stylesheets/index.scss';
 
 WebpackerReact.setup({ Car });
-global.I18n = I18n;

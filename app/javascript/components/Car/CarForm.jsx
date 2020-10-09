@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import httpClient from '../../libraries/httpClient';
+import httpClient from '../../shared/httpClient';
 import routes from '../../routes';
 
 import Modal from '../Modal';
 
 const CarForm = ({ car, fetchCars }) => {
   const [manufacturer, setManufacturer] = useState(car.manufacturer);
-  const [model, setModal] = useState(car.model);
+  const [model, setModel] = useState(car.model);
   const [year, setYear] = useState(car.year);
   const [producingCountry, setProducingCountry] = useState(car.producingCountry);
   const [errors, setErrors] = useState({});
@@ -50,7 +50,7 @@ const CarForm = ({ car, fetchCars }) => {
 
         <label htmlFor="model">
           <span className="car-edit__title">{I18n.t('attributes.model')}</span>
-          <input type="text" value={model} onChange={event => setModal(event.target.value)} />
+          <input type="text" value={model} onChange={event => setModel(event.target.value)} />
           {errors.model && <div className="car-edit__error">{errors.model}</div>}
         </label>
 
