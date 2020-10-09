@@ -1,9 +1,10 @@
 AllCops:
   Exclude:
-    - "vendor/**/*"
-    - "db/schema.rb"
+    - 'vendor/**/*'
+    - 'db/schema.rb'
   UseCache: false
   TargetRubyVersion: 2.6
+  NewCops: enable
 Style/CollectionMethods:
   Description: Preferred collection methods.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#map-find-select-reduce-size
@@ -27,7 +28,7 @@ Naming/FileName:
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#snake-case-files
   Enabled: true
   Exclude:
-    - "app/webpacker/**/*"
+    - 'app/webpacker/**/*'
 Style/GuardClause:
   Description: Check for conditionals that can be replaced with guard clauses
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#no-nested-conditionals
@@ -45,15 +46,15 @@ Style/PercentLiteralDelimiters:
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#percent-literal-braces
   Enabled: true
   PreferredDelimiters:
-    "%": "()"
-    "%i": "()"
-    "%q": "()"
-    "%Q": "()"
-    "%r": "{}"
-    "%s": "()"
-    "%w": "()"
-    "%W": "()"
-    "%x": "()"
+    '%': '()'
+    '%i': '()'
+    '%q': '()'
+    '%Q': '()'
+    '%r': '{}'
+    '%s': '()'
+    '%w': '()'
+    '%W': '()'
+    '%x': '()'
 Naming/PredicateName:
   Description: Check the names of predicate methods.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#bool-methods-qmark
@@ -108,8 +109,7 @@ Style/StringLiterals:
     - single_quotes
     - double_quotes
 Style/StringLiteralsInInterpolation:
-  Description:
-    Checks if uses of quotes inside expressions in interpolated strings
+  Description: Checks if uses of quotes inside expressions in interpolated strings
     match the configured preference.
   Enabled: true
   EnforcedStyle: single_quotes
@@ -117,22 +117,21 @@ Style/StringLiteralsInInterpolation:
     - single_quotes
     - double_quotes
 Style/TrailingCommaInArguments:
-  Description: "Checks for trailing comma in argument lists."
-  StyleGuide: "https://github.com/bbatsov/ruby-style-guide#no-trailing-array-commas"
+  Description: 'Checks for trailing comma in argument lists.'
+  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-trailing-array-commas'
   Enabled: true
   EnforcedStyleForMultiline: comma
 Style/TrailingCommaInArrayLiteral:
-  Description: "Checks for trailing comma in array literals."
-  StyleGuide: "#no-trailing-array-commas"
+  Description: 'Checks for trailing comma in array literals.'
+  StyleGuide: '#no-trailing-array-commas'
   Enabled: true
   EnforcedStyleForMultiline: consistent_comma
 Style/TrailingCommaInHashLiteral:
-  Description: "Checks for trailing comma in hash literals."
+  Description: 'Checks for trailing comma in hash literals.'
   Enabled: true
   EnforcedStyleForMultiline: consistent_comma
 Metrics/AbcSize:
-  Description:
-    A calculated magnitude based on number of assignments, branches, and
+  Description: A calculated magnitude based on number of assignments, branches, and
     conditions.
   Enabled: true
   Max: 15
@@ -147,8 +146,7 @@ Metrics/ModuleLength:
   Description: Avoid modules longer than 100 lines of code.
   Enabled: false
 Metrics/CyclomaticComplexity:
-  Description:
-    A complexity metric that is strongly correlated to the number of test
+  Description: A complexity metric that is strongly correlated to the number of test
     cases needed to validate a method.
   Enabled: true
   Max: 6
@@ -169,8 +167,7 @@ Metrics/ParameterLists:
   Max: 5
   CountKeywordArgs: true
 Metrics/PerceivedComplexity:
-  Description:
-    A complexity metric geared towards measuring complexity for a human
+  Description: A complexity metric geared towards measuring complexity for a human
     reader.
   Enabled: true
   Max: 7
@@ -236,8 +233,7 @@ Style/PerlBackrefs:
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#no-perl-regexp-last-matchers
   Enabled: true
 Style/Send:
-  Description:
-    Prefer `Object#__send__` or `Object#public_send` to `send`, as `send`
+  Description: Prefer `Object#__send__` or `Object#public_send` to `send`, as `send`
     may overlap with existing methods.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#prefer-public-send
   Enabled: true
@@ -246,8 +242,7 @@ Style/SpecialGlobalVars:
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#no-cryptic-perlisms
   Enabled: true
 Style/VariableInterpolation:
-  Description:
-    Don't interpolate global, instance and class variables directly in
+  Description: Don't interpolate global, instance and class variables directly in
     strings.
   StyleGuide: https://github.com/bbatsov/ruby-style-guide#curlies-interpolate
   Enabled: true
