@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import httpClient from '../../libraries/httpClient';
+import httpClient from '../../shared/httpClient';
 
 const CSVUpload = ({ fetchCars }) => {
   const [selectedCSV, setSelectedCSV] = useState(null);

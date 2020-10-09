@@ -4,7 +4,6 @@
 
 en:
   destroyed: '%{resource} has been removed'
-  page_title: Cars
   attributes:
     manufacturer: Manufacturer
     model: Model

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import httpClient from '../../libraries/httpClient';
+import httpClient from '../../shared/httpClient';
 import routes from '../../routes';
 
 import Modal from '../Modal';
