@@ -32,7 +32,6 @@ const CSVUpload = ({ fetchCars }) => {
       }
     } catch (error) {
       const response = error.response;
-      console.log({ response });
       if (response && response.status === 422) {
         setSelectedCSV(null);
         setCSVUploadComplete(true);
