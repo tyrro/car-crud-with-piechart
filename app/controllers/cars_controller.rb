@@ -35,12 +35,12 @@ class CarsController < ApplicationController
   end
 
   def import
-    result = CarImport.call(params[:file])
-
-    if result[:success]
+    result = ImportCsv.call(importer: CarImport, params: params)
+    Rails.logger.info result.inspect
+    if result.success?
       render json: { error: nil }
     else
-      render json: { error: result[:errors] }, status: :unprocessable_entity
+      render json: { error: result.errors }, status: :unprocessable_entity
     end
   end
 

@@ -9,3 +9,6 @@ en:
     model: Model
     year: Year
     producingCountry: Producing Country
+  import:
+    choose_file: Please choose a file
+    successful: CSV import successful

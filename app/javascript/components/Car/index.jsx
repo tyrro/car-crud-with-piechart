@@ -19,6 +19,7 @@ const Car = () => {
   const [searchParam, setSearchParam] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [sampleCSVFile, setSampleCSVFile] = useState(null);
 
   const CARATTRIBUTES = ['manufacturer', 'model', 'year', 'producingCountry'];
   const forcePage = currentPage - 1;
@@ -35,6 +36,7 @@ const Car = () => {
     setCarGraphicParams(data.carGraphicParams);
     setCurrentPage(data.pagination.currentPage);
     setTotalPages(data.pagination.totalPages);
+    setSampleCSVFile(data.sampleCsv);
   };
 
   const fetchCarsWithDebounce = useRef(
@@ -94,6 +96,9 @@ const Car = () => {
           <div className="car__details-header__csv-upload">
             <CSVUpload fetchCars={fetchCars} />
           </div>
+          <a href={sampleCSVFile} target="_blank" rel="noreferrer">
+            Sample CSV
+          </a>
         </div>
         <div className="car__pagination">
           <Pagination
