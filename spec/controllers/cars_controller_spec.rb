@@ -86,22 +86,6 @@ RSpec.describe CarsController, type: :controller do
     end
   end
 
-  describe 'POST #create' do
-    it 'renders a successful response on create' do
-      expect do
-        post :create, params: { car: car_attributes.except(:id) }
-      end.to change(Car, :count).by(1)
-      expect(JSON.parse(response.body)).to eq({ 'error' => nil })
-    end
-
-    it 'renders the errors if create fails' do
-      expect do
-        post :create, params: { car: car_attributes.except(:id, :model) }
-      end.not_to change(Car, :count)
-      expect(JSON.parse(response.body)).to eq({ 'error' => { 'model' => 'can\'t be blank' } })
-    end
-  end
-
   describe 'PUT #update' do
     it 'renders a successful response on update' do
       put :update, params: { id: car.id, car: car_attributes.except(:id).merge(model: 'toyota') }
@@ -141,7 +125,9 @@ RSpec.describe CarsController, type: :controller do
 
       it 'returns the errors' do
         post :import, params: { file: file }
-        expect(JSON.parse(response.body)).to eq({ 'error' => [{ 'message' => "Model can't be blank", 'row' => 1 }] })
+        expect(JSON.parse(response.body)).to eq(
+          { 'error' => [{ 'message' => "Model can't be blank", 'row' => 1 }] },
+        )
       end
     end
   end
