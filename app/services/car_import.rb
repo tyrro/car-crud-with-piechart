@@ -28,11 +28,6 @@ class CarImport
             message: car.errors.full_messages.to_sentence,
           }
         end
-      rescue ActiveRecord::RecordNotFound, ArgumentError => error
-        errors << {
-          row: row_number,
-          messages: [error.message],
-        }
       end
     end
     success = errors.empty?
@@ -46,7 +41,6 @@ class CarImport
 
   def car_attributes(params)
     manufacturer, model, year, producing_country = params.map(&:last)
-    Rails.logger.error manufacturer
     {
       manufacturer: manufacturer,
       model: model,

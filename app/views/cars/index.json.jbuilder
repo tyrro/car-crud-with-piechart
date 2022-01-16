@@ -7,7 +7,6 @@ json.cars @cars do |car|
 end
 json.car_suggestions @car_search_suggestions
 json.car_graphic_params @car_graphic_params
-json.sample_csv '/files/sample.csv'
 json.pagination do
   json.total_pages @cars.total_pages
   json.total_count @cars.total_count
