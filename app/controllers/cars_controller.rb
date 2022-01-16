@@ -10,16 +10,6 @@ class CarsController < ApplicationController
     @car_graphic_params = ::PrepareParamsForCarGraphic.call(@cars)
   end
 
-  def create
-    @car = Car.new(car_params)
-    if @car.save
-      render json: { error: nil }
-    else
-      render json: { error: validation_messages(@car.errors.messages) },
-             status: :unprocessable_entity
-    end
-  end
-
   def update
     if @car.update(car_params)
       render json: { error: nil }
@@ -35,12 +25,11 @@ class CarsController < ApplicationController
   end
 
   def import
-    result = CarImport.call(params[:file])
-
-    if result[:success]
+    result = ImportCsv.call(importer: CarImport, params: params)
+    if result.success?
       render json: { error: nil }
     else
-      render json: { error: result[:errors] }, status: :unprocessable_entity
+      render json: { error: result.errors }, status: :unprocessable_entity
     end
   end
 

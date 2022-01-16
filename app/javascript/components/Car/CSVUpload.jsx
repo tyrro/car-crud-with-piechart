@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import httpClient from '../../shared/httpClient';
 
-const CSVUpload = ({ fetchCars }) => {
+const CSVUpload = ({ sampleCSVFile, fetchCars }) => {
   const [selectedCSV, setSelectedCSV] = useState(null);
   const [CSVUploadComplete, setCSVUploadComplete] = useState(false);
   const [CSVUploadErrors, setCSVUploadErrors] = useState([]);
@@ -43,6 +43,9 @@ const CSVUpload = ({ fetchCars }) => {
   return (
     <form className="csv-upload-form" onSubmit={event => handleSubmitCSV(event)}>
       <input type="file" accept=".csv" onChange={event => setSelectedCSV(event.target.files[0])} />
+      <a href={sampleCSVFile} className="mr-4" target="_blank" rel="noreferrer">
+        Sample CSV
+      </a>
       <button type="submit" disabled={!selectedCSV}>
         Upload
       </button>
@@ -57,6 +60,7 @@ const CSVUpload = ({ fetchCars }) => {
 };
 
 CSVUpload.propTypes = {
+  sampleCSVFile: PropTypes.string.isRequired,
   fetchCars: PropTypes.func.isRequired,
 };
 

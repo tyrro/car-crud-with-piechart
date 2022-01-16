@@ -89,6 +89,10 @@ GEM
       concurrent-ruby (~> 1.0)
     i18n-js (3.9.0)
       i18n (>= 0.6.6)
+    interactor (3.1.2)
+    interactor-rails (2.2.1)
+      interactor (~> 3.0)
+      rails (>= 4.2)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -116,10 +120,12 @@ GEM
     matrix (0.4.2)
     method_source (1.0.0)
     mini_mime (1.1.2)
+    mini_portile2 (2.6.1)
     minitest (5.15.0)
     msgpack (1.4.2)
     nio4r (2.5.8)
-    nokogiri (1.12.5-x86_64-darwin)
+    nokogiri (1.12.5)
+      mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
     pg (1.2.3)
     public_suffix (4.0.6)
@@ -251,6 +257,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   factory_bot_rails
   i18n-js
+  interactor-rails
   jbuilder (~> 2.7)
   kaminari
   listen (~> 3.2)

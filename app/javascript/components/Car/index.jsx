@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState, useRef } from 'react';
 import { debounce } from 'throttle-debounce';
+import PropTypes from 'prop-types';
 
 import httpClient from '../../shared/httpClient';
 import routes from '../../routes';
@@ -12,7 +13,7 @@ import CSVUpload from './CSVUpload';
 import Pagination from '../Pagination';
 import PieGraphic from '../PieGraphic';
 
-const Car = () => {
+const Car = ({ sampleCSVFile }) => {
   const [cars, setCars] = useState([]);
   const [carSuggestions, setCarSuggestions] = useState([]);
   const [carGraphicParams, setCarGraphicParams] = useState([]);
@@ -92,7 +93,7 @@ const Car = () => {
             ))}
           </div>
           <div className="car__details-header__csv-upload">
-            <CSVUpload fetchCars={fetchCars} />
+            <CSVUpload sampleCSVFile={sampleCSVFile} fetchCars={fetchCars} />
           </div>
         </div>
         <div className="car__pagination">
@@ -141,6 +142,10 @@ const Car = () => {
       </div>
     </div>
   );
+};
+
+Car.propTypes = {
+  sampleCSVFile: PropTypes.string.isRequired,
 };
 
 export default Car;

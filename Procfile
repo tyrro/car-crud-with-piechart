@@ -1,3 +1,2 @@
-web: PORT=3000 rails s
-logs: tail -f log/development.log
+web: rm -rf tmp/pids/server.pid && rails s -p 3000
 js: ./bin/webpack-dev-server
