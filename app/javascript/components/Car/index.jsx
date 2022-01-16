@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState, useRef } from 'react';
 import { debounce } from 'throttle-debounce';
+import PropTypes from 'prop-types';
 
 import httpClient from '../../shared/httpClient';
 import routes from '../../routes';
@@ -12,14 +13,13 @@ import CSVUpload from './CSVUpload';
 import Pagination from '../Pagination';
 import PieGraphic from '../PieGraphic';
 
-const Car = () => {
+const Car = ({ sampleCSVFile }) => {
   const [cars, setCars] = useState([]);
   const [carSuggestions, setCarSuggestions] = useState([]);
   const [carGraphicParams, setCarGraphicParams] = useState([]);
   const [searchParam, setSearchParam] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [sampleCSVFile, setSampleCSVFile] = useState(null);
 
   const CARATTRIBUTES = ['manufacturer', 'model', 'year', 'producingCountry'];
   const forcePage = currentPage - 1;
@@ -36,7 +36,6 @@ const Car = () => {
     setCarGraphicParams(data.carGraphicParams);
     setCurrentPage(data.pagination.currentPage);
     setTotalPages(data.pagination.totalPages);
-    setSampleCSVFile(data.sampleCsv);
   };
 
   const fetchCarsWithDebounce = useRef(
@@ -94,11 +93,8 @@ const Car = () => {
             ))}
           </div>
           <div className="car__details-header__csv-upload">
-            <CSVUpload fetchCars={fetchCars} />
+            <CSVUpload sampleCSVFile={sampleCSVFile} fetchCars={fetchCars} />
           </div>
-          <a href={sampleCSVFile} target="_blank" rel="noreferrer">
-            Sample CSV
-          </a>
         </div>
         <div className="car__pagination">
           <Pagination
@@ -146,6 +142,10 @@ const Car = () => {
       </div>
     </div>
   );
+};
+
+Car.propTypes = {
+  sampleCSVFile: PropTypes.string.isRequired,
 };
 
 export default Car;
