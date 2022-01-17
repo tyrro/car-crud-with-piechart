@@ -2,13 +2,14 @@
   "name": "car_crud_with_piechart",
   "private": true,
   "dependencies": {
-    "@babel/preset-react": "^7.10.4",
-    "@rails/webpacker": "4.3.0",
+    "@babel/core": "^7.16.7",
+    "@babel/preset-react": "^7.16.7",
+    "@rails/webpacker": "5.4.3",
     "axios": "^0.20.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "camelcase-keys": "^6.2.2",
     "i18n-js": "^3.7.1",
-    "prop-types": "^15.7.2",
+    "prop-types": "^15.8.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-minimal-pie-chart": "^8.0.1",
@@ -16,6 +17,8 @@
     "react-paginate": "^6.5.0",
     "throttle-debounce": "^2.3.0",
     "url-template": "^2.0.8",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^3.3.12",
     "webpacker-react": "^0.3.2"
   },
   "version": "0.1.0",
@@ -33,7 +36,7 @@
     "jest": "^26.4.2",
     "jest-junit": "^12.0.0",
     "prettier": "^2.1.2",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3"
   },
   "scripts": {
     "test": "TZ=UTC jest",

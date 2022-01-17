@@ -4,7 +4,8 @@ x-default: &default
   build: .
   volumes:
     - .:/var/www/car-crud-with-piechart
-    - /var/www/car-crud-with-piechart/node_modules
+    - bundle_install:/usr/local/bundle
+    - node_modules:/var/www/car-crud-with-piechart/node_modules
   environment:
     POSTGRES_USER: postgres
     POSTGRES_PASSWORD: password
@@ -34,3 +35,6 @@ services:
 
 volumes:
   postgres-data:
+  bundle_install:
+  node_modules:
+

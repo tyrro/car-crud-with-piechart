@@ -5,7 +5,7 @@ import { shallow } from 'enzyme';
 import CSVUpload from './CSVUpload';
 import wait from '../../shared/wait';
 
-const props = { fetchCars: jest.fn() };
+const props = { sampleCSVFile: 'link/to/file', fetchCars: jest.fn() };
 const file = new Blob(['file contents'], { type: 'csv' });
 
 const uploadCSV = wrapper =>
