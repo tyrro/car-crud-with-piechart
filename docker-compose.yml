@@ -4,7 +4,8 @@ x-default: &default
   build: .
   volumes:
     - .:/var/www/car-crud-with-piechart
-    - /var/www/car-crud-with-piechart/node_modules
+    - bundle_install:/usr/local/bundle
+    - node_modules:/var/www/car-crud-with-piechart/node_modules
   environment:
     POSTGRES_USER: postgres
     POSTGRES_PASSWORD: password
@@ -27,6 +28,7 @@ services:
         & bundle exec rails s -p 3000 -b '0.0.0.0'"
     ports:
       - 3000:3000
+      - 3035:3035
     depends_on:
       - postgres
     tty: true
@@ -34,3 +36,5 @@ services:
 
 volumes:
   postgres-data:
+  bundle_install:
+  node_modules:
